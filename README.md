@@ -11,7 +11,7 @@
 Open workspace and set Example as Startup project and Run!
 
 Example can run in two modes
-- *Buildtime* mode where example/buildtime directory is found and the resources are built if they we're changed or added (or not built before)
+- *Buildtime* mode where example/buildtime directory is found and the resources are built if they were changed or added (or not built before)
 - *Runtime* mode where example/buildtime directory is not found and example/runtime is already built (used when distributing the application)
 
 When running in *Buildtime* mode the changes to the existing assets (in example/buildtime directory) will be built on the fly.
