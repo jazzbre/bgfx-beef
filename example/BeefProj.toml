@@ -1,0 +1,11 @@
+FileVersion = 1
+Dependencies = {corlib = "*", bgfx-beef = "*", SDL2 = "*"}
+
+[Project]
+Name = "example"
+StartupObject = "Example.Program"
+DefaultNamespace = "Example"
+
+[Configs.Debug.Win64]
+OtherLinkFlags = "$(LinkFlags) gdi32.lib"
+LibPaths = ["$(ProjectDir)\\..\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\..\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\..\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\..\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]

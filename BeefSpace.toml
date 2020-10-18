@@ -1,0 +1,5 @@
+FileVersion = 1
+Projects = {bgfx-beef = {Path = "."}, example = {Path = "example"}, SDL2 = "*"}
+
+[Workspace]
+StartupProject = "example"
