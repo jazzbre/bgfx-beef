@@ -1,4 +1,4 @@
-#Bgfx wrapper for the Beef Programming Language
+# Bgfx wrapper for the Beef Programming Language
 
 ## Prerequisites
 - Visual Studio 2019 Community/Professional (it can be built with other versions though, check build_windows_vs2019.cmd for more information)
