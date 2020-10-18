@@ -79,7 +79,7 @@ namespace Example
 
 		private static void DestroyResourceBuilders()
 		{
-			foreach (var builder in resourceBuilders)
+			for (var builder in resourceBuilders)
 			{
 				delete builder;
 			}
@@ -88,7 +88,7 @@ namespace Example
 
 		private static void DestroyResources()
 		{
-			foreach (var pair in resourceMap)
+			for (var pair in resourceMap)
 			{
 				delete pair.value;
 			}
@@ -97,7 +97,7 @@ namespace Example
 
 		public static void Finalize()
 		{
-			foreach (var vertexBufferHandle in vertexBufferHandles)
+			for (var vertexBufferHandle in vertexBufferHandles)
 			{
 				bgfx.destroy_vertex_buffer(vertexBufferHandle);
 			}
@@ -291,7 +291,7 @@ namespace Example
 				var files = scope List<String>();
 				Utils.FindFiles(buildtimeResourcesPath, "*.*", ref files);
 				// Update resource
-				foreach (var fileName in files)
+				for (var fileName in files)
 				{
 					BuildResource(fileName);
 					delete fileName;

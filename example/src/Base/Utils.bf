@@ -79,7 +79,7 @@ namespace Example
 		public static DateTime GetLatestTimestamp(params StringView[] args)
 		{
 			var bestDateTime = DateTime();
-			foreach (var arg in args)
+			for (var arg in args)
 			{
 				switch (File.GetLastWriteTimeUtc(arg)) {
 				case .Ok(let dt):
@@ -106,7 +106,7 @@ namespace Example
 			var fileName = scope String();
 			searchPath.AppendF("{}/{}", path, what);
 			var files = Directory.Enumerate(searchPath, .Directories | .Files);
-			foreach (var file in files)
+			for (var file in files)
 			{
 				fileName.Clear();
 				file.GetFilePath(fileName);
@@ -124,7 +124,7 @@ namespace Example
 
 		public static void SHA256ToString(SHA256Hash hash, String s)
 		{
-			foreach (var h in hash.mHash)
+			for (var h in hash.mHash)
 			{
 				s.AppendF("{0:X}", h);
 			}
