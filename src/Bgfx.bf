@@ -15,6 +15,7 @@ namespace Bgfx
 {
 	public static class bgfx
 	{
+		[AllowDuplicates]
 		public enum StateFlags : uint64
 		{
 			/// <summary>
@@ -272,6 +273,7 @@ namespace Bgfx
 		}
 
 
+		[AllowDuplicates]
 		public enum StencilFlags : uint32
 		{
 			FuncRefShift = 0,
@@ -606,7 +608,7 @@ namespace Bgfx
 			Profiler = 0x00000010,
 		}
 
-
+		[AllowDuplicates]
 		public enum BufferFlags : uint16
 		{
 			/// <summary>
@@ -702,6 +704,7 @@ namespace Bgfx
 		}
 
 
+		[AllowDuplicates]
 		public enum TextureFlags : uint64
 		{
 			None = 0x0000000000000000,
@@ -767,6 +770,7 @@ namespace Bgfx
 		}
 
 
+		[AllowDuplicates]
 		public enum SamplerFlags : uint32
 		{
 			/// <summary>
@@ -910,6 +914,7 @@ namespace Bgfx
 		}
 
 
+		[AllowDuplicates]
 		public enum ResetFlags : uint32
 		{
 			/// <summary>
