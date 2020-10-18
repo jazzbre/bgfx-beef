@@ -17,6 +17,7 @@ namespace Example
 		public int32 mHeight = 360;
 		public bool* mKeyboardState;
 		public bool mHasAudio;
+		public bool isFullscreen = false;
 
 		public int32 targetWidth = 320;
 		public int32 targetHeight = 180;
@@ -45,7 +46,7 @@ namespace Example
 
 		private bool InitializeSDL()
 		{
-			SDL.Init(.Events | .Audio);
+			SDL.Init(.Video | .Events | .Audio);
 			SDL.EventState(.JoyAxisMotion, .Disable);
 			SDL.EventState(.JoyBallMotion, .Disable);
 			SDL.EventState(.JoyHatMotion, .Disable);
@@ -54,7 +55,8 @@ namespace Example
 			SDL.EventState(.JoyDeviceAdded, .Disable);
 			SDL.EventState(.JoyDeviceRemoved, .Disable);
 
-			mWindow = SDL.CreateWindow(mTitle, .Undefined, .Undefined, mWidth, mHeight, .Shown | .AllowHighDPI);
+			mWindow = SDL.CreateWindow(mTitle, .Undefined, .Undefined, mWidth, mHeight, .Shown | .Resizable);
+			SDL.MaximizeWindow(mWindow);
 			mHasAudio = SDLMixer.OpenAudio(44100, SDLMixer.MIX_DEFAULT_FORMAT, 2, 4096) >= 0;
 
 			return true;
@@ -64,7 +66,6 @@ namespace Example
 		{
 			var info = SDL.SDL_SysWMinfo();
 			SDL.GetWindowWMInfo(mWindow, ref info);
-
 
 			var platformData = bgfx.PlatformData();
 			platformData.ndt = null;
@@ -133,11 +134,30 @@ namespace Example
 		{
 		}
 
+		public bool KeyDownInternal(SDL.KeyboardEvent evt)
+		{
+			return false;
+		}
+
 		public virtual void KeyDown(SDL.KeyboardEvent evt)
 		{
 			if (evt.keysym.scancode == .Grave)
 			{
 				GC.Report();
+			}
+			if ((evt.keysym.mod & .ALT) !=0 && evt.keysym.scancode == .Return)
+			{
+				isFullscreen = !isFullscreen;
+				if(isFullscreen) {
+					var rect = SDL.Rect();
+					SDL.GetDisplayBounds(0, out rect);
+					SDL.RestoreWindow(mWindow);
+					SDL.SetWindowSize(mWindow, rect.w, rect.h);
+					SDL.SetWindowPosition(mWindow, (int32)SDL.WindowPos.Centered, (int32)SDL.WindowPos.Centered);
+				} else {
+					SDL.RestoreWindow(mWindow);
+					SDL.MaximizeWindow(mWindow);
+				}
 			}
 		}
 
@@ -215,12 +235,28 @@ namespace Example
 						return;
 					case .KeyDown:
 						KeyDown(event.key);
+						break;
 					case .KeyUp:
 						KeyUp(event.key);
+						break;
 					case .MouseButtonDown:
 						MouseDown(event.button);
+						break;
 					case .MouseButtonUp:
 						MouseUp(event.button);
+						break;
+					case .WindowEvent:
+						switch (event.window.windowEvent) {
+						case .SizeChanged:
+							mWidth = event.window.data1;
+							mHeight = event.window.data2;
+							bgfx.reset((uint32)mWidth, (uint32)mHeight, (uint32)bgfx.ResetFlags.Vsync, Bgfx.bgfx.TextureFormat.Count);
+							Log.Debug("Window resized to {0}x{1}!", mWidth, mHeight);
+							break;
+						default:
+							break;
+						}
+						break;
 					default:
 					}
 					HandleEvent(event);
