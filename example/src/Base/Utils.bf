@@ -79,19 +79,26 @@ namespace Example
 		public static DateTime GetLatestTimestamp(params StringView[] args)
 		{
 			var bestDateTime = DateTime();
+			var failed = false;
 			for (var arg in args)
 			{
-				switch (File.GetLastWriteTimeUtc(arg)) {
-				case .Ok(let dt):
-					if (dt > bestDateTime)
-					{
-						bestDateTime = dt;
+				if (File.Exists(arg))
+				{
+					switch (File.GetLastWriteTimeUtc(arg)) {
+					case .Ok(let dt):
+						if (dt > bestDateTime)
+						{
+							bestDateTime = dt;
+						}
+						break;
+					default:
 					}
-					break;
-				default:
+				} else
+				{
+					failed = true;
 				}
 			}
-			return bestDateTime;
+			return failed ? DateTime() : bestDateTime;
 		}
 
 		public static void NormalizePath(String path)
