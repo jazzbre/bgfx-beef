@@ -52,7 +52,7 @@ namespace Example
 			bgfx.set_state(state, 0);
 			if (texture != null)
 			{
-				var scale = Quaternion(texture.Width * 0.5f, texture.Height * 0.5f, 0.0f, 0.0f);
+				var scale = Vector4(texture.Width * 0.5f, texture.Height * 0.5f, 0.0f, 0.0f);
 				bgfx.set_uniform(scaleUniform, &scale, 1);
 				bgfx.set_texture(0, bgfx.create_uniform("s_texture", bgfx.UniformType.Sampler, 1), texture.Handle, (uint64)(bgfx.SamplerFlags.MinPoint | bgfx.SamplerFlags.MagPoint | bgfx.SamplerFlags.MipPoint | bgfx.SamplerFlags.UClamp | bgfx.SamplerFlags.VClamp));
 			}
@@ -88,7 +88,7 @@ namespace Example
 				var random = scope Random(100);
 
 				{
-					var time = Quaternion((float)Time.Time, 0.0f, 0.0f, 0.0f);
+					var time = Vector4((float)Time.Time, 0.0f, 0.0f, 0.0f);
 					bgfx.set_uniform(timeUniform, &time, 1);
 					var state = (uint64)(bgfx.StateFlags.WriteRgb | bgfx.StateFlags.WriteA | bgfx.StateFlags.PtTristrip);
 					bgfx.set_state(state, 0);

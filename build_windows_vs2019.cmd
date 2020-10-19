@@ -2,6 +2,7 @@
 cd submodules\bgfx
 ..\bx\tools\bin\windows\genie --with-tools vs2019
 cd ..\..
+xcopy /Y submodules\bgfx\bindings\bf\bgfx.bf src\
 
 echo Check Visual Studio version
 IF EXIST "c:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE" (
