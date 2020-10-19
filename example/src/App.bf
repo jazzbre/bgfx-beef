@@ -10,10 +10,12 @@ namespace Example
 		public bgfx.VertexBufferHandle rainQuad;
 		public bgfx.VertexBufferHandle blitQuad;
 		public bgfx.UniformHandle scaleUniform;
+		public bgfx.UniformHandle timeUniform;
 
 		Texture rainDropTexture;
 		List<Texture> cloudTextures = new List<Texture>() ~ delete _;
 		Shader textureShader;
+		Shader backgroundShader;
 		Shader blitShader;
 
 		public override void OnPreInit()
@@ -28,6 +30,7 @@ namespace Example
 			base.OnPostInit();
 			textureShader = ResourceManager.GetResource<Shader>("shaders/generic_texture");
 			blitShader = ResourceManager.GetResource<Shader>("shaders/blit");
+			backgroundShader = ResourceManager.GetResource<Shader>("shaders/background");
 			rainDropTexture = ResourceManager.GetResource<Texture>("textures/raindrop");
 			for (int i = 0; i < 3; ++i)
 			{
@@ -39,6 +42,7 @@ namespace Example
 			blitQuad = ResourceManager.CreateQuad();
 
 			scaleUniform = bgfx.create_uniform("scale", bgfx.UniformType.Vec4, 1);
+			timeUniform = bgfx.create_uniform("time", bgfx.UniformType.Vec4, 1);
 		}
 
 		public void RenderQuad(uint16 viewId, ref Matrix4 model, Texture texture)
@@ -46,10 +50,13 @@ namespace Example
 			bgfx.set_transform(model.Ptr(), 1);
 			uint64 state = (uint64)(bgfx.StateFlags.WriteRgb | bgfx.StateFlags.WriteA | bgfx.StateFlags.PtTristrip | bgfx.blend_function(bgfx.StateFlags.BlendSrcAlpha, bgfx.StateFlags.BlendInvSrcAlpha));
 			bgfx.set_state(state, 0);
-			var scale = Quaternion(texture.Width * 0.5f, texture.Height * 0.5f, 0.0f, 0.0f);
-			bgfx.set_uniform(scaleUniform, &scale, 1);
+			if (texture != null)
+			{
+				var scale = Quaternion(texture.Width * 0.5f, texture.Height * 0.5f, 0.0f, 0.0f);
+				bgfx.set_uniform(scaleUniform, &scale, 1);
+				bgfx.set_texture(0, bgfx.create_uniform("s_texture", bgfx.UniformType.Sampler, 1), texture.Handle, (uint64)(bgfx.SamplerFlags.MinPoint | bgfx.SamplerFlags.MagPoint | bgfx.SamplerFlags.MipPoint | bgfx.SamplerFlags.UClamp | bgfx.SamplerFlags.VClamp));
+			}
 			bgfx.set_vertex_buffer(0, rainQuad, 0, 4);
-			bgfx.set_texture(0, bgfx.create_uniform("s_texture", bgfx.UniformType.Sampler, 1), texture.Handle, (uint64)(bgfx.SamplerFlags.MinPoint | bgfx.SamplerFlags.MagPoint | bgfx.SamplerFlags.MipPoint | bgfx.SamplerFlags.UClamp | bgfx.SamplerFlags.VClamp));
 			bgfx.submit(viewId, textureShader.Handle, 0, (uint8)bgfx.DiscardFlags.All);
 		}
 
@@ -79,6 +86,16 @@ namespace Example
 				var rotation = Quaternion.CreateFromYawPitchRoll(0, 0, 0);
 				model = rotation.ToMatrix();
 				var random = scope Random(100);
+
+				{
+					var time = Quaternion((float)Time.Time, 0.0f, 0.0f, 0.0f);
+					bgfx.set_uniform(timeUniform, &time, 1);
+					var state = (uint64)(bgfx.StateFlags.WriteRgb | bgfx.StateFlags.WriteA | bgfx.StateFlags.PtTristrip);
+					bgfx.set_state(state, 0);
+					bgfx.set_vertex_buffer(0, blitQuad, 0, 4);
+					bgfx.submit(viewId, backgroundShader.Handle, 0, (uint8)bgfx.DiscardFlags.All);
+				}
+
 				for (int i = 0; i < 100; ++i)
 				{
 					int index = random.Next(0, cloudTextures.Count - 1);
@@ -96,7 +113,6 @@ namespace Example
 					model.Translation = Vector3(x, y, 0.0f);
 					RenderQuad(viewId, ref model, rainDropTexture);
 				}
-
 				++viewId;
 			}
 			// Render texture to screen
