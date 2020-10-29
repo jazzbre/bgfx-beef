@@ -28,6 +28,9 @@ namespace Example
 		public delegate void OnPauseDelegate(bool paused);
 		public Event<OnPauseDelegate> OnPause ~ _.Dispose();
 
+		public int[3] mouseButton;
+		public Vector2 mouseDelta = .sZero;
+
 		public this()
 		{
 			gApp = this;
@@ -125,9 +128,13 @@ namespace Example
 			return mKeyboardState[(int)scancode];
 		}
 
+		public virtual void OnUpdate() {
+		}
+
 		public virtual void Update()
 		{
 			Time.Update();
+			OnUpdate();
 		}
 
 		public virtual void Draw()
@@ -167,10 +174,12 @@ namespace Example
 
 		public virtual void MouseDown(SDL.MouseButtonEvent evt)
 		{
+			mouseButton[evt.button - 1] = 1;
 		}
 
 		public virtual void MouseUp(SDL.MouseButtonEvent evt)
 		{
+			mouseButton[evt.button - 1] = 0;
 		}
 
 		public virtual void HandleEvent(SDL.Event evt)
@@ -225,8 +234,8 @@ namespace Example
 		{
 			while (true)
 			{
+				mouseDelta = .sZero;
 				SDL.Event event;
-
 				while (SDL.PollEvent(out event) != 0)
 				{
 					switch (event.type)
@@ -244,6 +253,10 @@ namespace Example
 						break;
 					case .MouseButtonUp:
 						MouseUp(event.button);
+						break;
+					case .MouseMotion:
+						mouseDelta.mX += event.motion.xrel;
+						mouseDelta.mY += event.motion.yrel;
 						break;
 					case .WindowEvent:
 						switch (event.window.windowEvent) {
