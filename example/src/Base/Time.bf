@@ -11,7 +11,7 @@ namespace Example
 			get; private set;
 		}
 
-		public static double DeltaTime
+		public static float DeltaTime
 		{
 			get; private set;
 		}
@@ -25,7 +25,7 @@ namespace Example
 			newTime -= startTime;
 			if (Time > 0.0)
 			{
-				DeltaTime = newTime - Time;
+				DeltaTime = (float)(newTime - Time);
 			}
 			Time = newTime;
 		}
