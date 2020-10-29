@@ -28,7 +28,7 @@ namespace Example
 			Utils.NormalizePath(toolPath);
 			var commandLine = scope String();
 			commandLine.Clear();
-			commandLine.AppendF("-f \"{0}\" -o \"{1}\" -t RGBA8", path, texBinaryPath);
+			commandLine.AppendF("-f \"{0}\" -o \"{1}\" -t RGBA8 --linear", path, texBinaryPath);
 			// Build fragment shader
 			if (Utils.ExecuteProcess(toolPath, commandLine) != 0)
 			{
