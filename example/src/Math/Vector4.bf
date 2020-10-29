@@ -17,17 +17,17 @@ namespace Example
 		[Reflect]
 		public float mW;
 
-		private static Vector4 sZero = Vector4(0f, 0f, 0f, 0.0f);
-		private static Vector4 sOne = Vector4(1f, 1f, 1f, 1.0f);
-		private static Vector4 sUnitX = Vector4(1f, 0f, 0f, 0.0f);
-		private static Vector4 sUnitY = Vector4(0f, 1f, 0f, 0.0f);
-		private static Vector4 sUnitZ = Vector4(0f, 0f, 1f, 0.0f);
-		private static Vector4 sUp = Vector4(0f, 1f, 0f, 0.0f);
-		private static Vector4 sDown = Vector4(0f, -1f, 0f, 0.0f);
-		private static Vector4 sRight = Vector4(1f, 0f, 0f, 0.0f);
-		private static Vector4 sLeft = Vector4(-1f, 0f, 0f, 0.0f);
-		private static Vector4 sForward = Vector4(0f, 0f, -1f, 0.0f);
-		private static Vector4 sBackward = Vector4(0f, 0f, 1f, 0.0f);
+		public static Vector4 sZero = Vector4(0f, 0f, 0f, 0.0f);
+		public static Vector4 sOne = Vector4(1f, 1f, 1f, 1.0f);
+		public static Vector4 sUnitX = Vector4(1f, 0f, 0f, 0.0f);
+		public static Vector4 sUnitY = Vector4(0f, 1f, 0f, 0.0f);
+		public static Vector4 sUnitZ = Vector4(0f, 0f, 1f, 0.0f);
+		public static Vector4 sUp = Vector4(0f, 1f, 0f, 0.0f);
+		public static Vector4 sDown = Vector4(0f, -1f, 0f, 0.0f);
+		public static Vector4 sRight = Vector4(1f, 0f, 0f, 0.0f);
+		public static Vector4 sLeft = Vector4(-1f, 0f, 0f, 0.0f);
+		public static Vector4 sForward = Vector4(0f, 0f, -1f, 0.0f);
+		public static Vector4 sBackward = Vector4(0f, 0f, 1f, 0.0f);
 
 		public static Vector4 Zero
 		{

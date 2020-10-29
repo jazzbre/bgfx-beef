@@ -15,17 +15,17 @@ namespace Example
 		[Reflect]
 		public float mZ;
 
-		private static Vector3 sZero = Vector3(0f, 0f, 0f);
-		private static Vector3 sOne = Vector3(1f, 1f, 1f);
-		private static Vector3 sUnitX = Vector3(1f, 0f, 0f);
-		private static Vector3 sUnitY = Vector3(0f, 1f, 0f);
-		private static Vector3 sUnitZ = Vector3(0f, 0f, 1f);
-		private static Vector3 sUp = Vector3(0f, 1f, 0f);
-		private static Vector3 sDown = Vector3(0f, -1f, 0f);
-		private static Vector3 sRight = Vector3(1f, 0f, 0f);
-		private static Vector3 sLeft = Vector3(-1f, 0f, 0f);
-		private static Vector3 sForward = Vector3(0f, 0f, -1f);
-		private static Vector3 sBackward = Vector3(0f, 0f, 1f);
+		public static Vector3 sZero = Vector3(0f, 0f, 0f);
+		public static Vector3 sOne = Vector3(1f, 1f, 1f);
+		public static Vector3 sUnitX = Vector3(1f, 0f, 0f);
+		public static Vector3 sUnitY = Vector3(0f, 1f, 0f);
+		public static Vector3 sUnitZ = Vector3(0f, 0f, 1f);
+		public static Vector3 sUp = Vector3(0f, 1f, 0f);
+		public static Vector3 sDown = Vector3(0f, -1f, 0f);
+		public static Vector3 sRight = Vector3(1f, 0f, 0f);
+		public static Vector3 sLeft = Vector3(-1f, 0f, 0f);
+		public static Vector3 sForward = Vector3(0f, 0f, -1f);
+		public static Vector3 sBackward = Vector3(0f, 0f, 1f);
 
 		public static Vector3 Zero
 		{

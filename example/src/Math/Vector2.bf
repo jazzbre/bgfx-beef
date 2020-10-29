@@ -10,6 +10,15 @@ namespace Example
 		public float mX;
 		public float mY;
 
+		public static Vector2 sZero = Vector2(0f, 0f);
+		public static Vector2 sOne = Vector2(1f, 1f);
+		public static Vector2 sUnitX = Vector2(1f, 0f);
+		public static Vector2 sUnitY = Vector2(0f, 1f);
+		public static Vector2 sUp = Vector2(0f, 1f);
+		public static Vector2 sDown = Vector2(0f, -1f);
+		public static Vector2 sRight = Vector2(1f, 0f);
+		public static Vector2 sLeft = Vector2(-1f, 0f);
+
 		public float Length
 		{
 			get
