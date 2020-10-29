@@ -1,4 +1,6 @@
-# Bgfx wrapper for the Beef Programming Language
+# [bgfx-beef](https://github.com/jazzbre/bgfx-beef) Bgfx wrapper for the Beef Programming Language
+
+[bgfx](https://github.com/bkaradzic/bgfx)
 
 ## Prerequisites
 - Visual Studio 2019 Community/Professional (it can be built with other versions though, check build_windows_vs2019.cmd for more information)
@@ -16,6 +18,8 @@ Example can run in two modes
 
 When running in *Buildtime* mode the changes to the existing assets (in example/buildtime directory) will be built on the fly.
 
+## Future work
+iOS, Android, macOS and Linux build scripts.
 
 ## Art
 
