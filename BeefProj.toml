@@ -2,3 +2,19 @@ FileVersion = 1
 
 [Project]
 Name = "bgfx-beef"
+
+[Configs.Debug.Win64]
+OtherLinkFlags = "$(LinkFlags)  gdi32.lib user32.lib"
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+
+[Configs.Release.Win64]
+OtherLinkFlags = "$(LinkFlags)  gdi32.lib user32.lib"
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+
+[Configs.Paranoid.Win64]
+OtherLinkFlags = "$(LinkFlags)  gdi32.lib user32.lib"
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+
+[Configs.Test.Win64]
+OtherLinkFlags = "$(LinkFlags)  gdi32.lib user32.lib"
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
