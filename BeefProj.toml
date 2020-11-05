@@ -5,7 +5,7 @@ Name = "bgfx-beef"
 
 [Configs.Debug.Win64]
 OtherLinkFlags = "$(LinkFlags)  gdi32.lib user32.lib"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxDebug.lib"]
 
 [Configs.Release.Win64]
 OtherLinkFlags = "$(LinkFlags)  gdi32.lib user32.lib"
