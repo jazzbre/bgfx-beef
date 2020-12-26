@@ -72,8 +72,13 @@ namespace Example
 
 			var platformData = bgfx.PlatformData();
 			platformData.ndt = null;
+#if BF_PLATFORM_WINDOWS
 			platformData.nwh = (void*)(int)info.info.win.window;
-
+#elif BF_PLATFORM_MACOS
+                        platformData.nwh = (void*)(int)info.info.cocoa.window;
+#elif BF_PLATFORM_LINUX
+                        platformData.nwh = (void*)(int)info.info.x11.window;
+#endif
 			bgfx.render_frame(0);
 
 			var init = bgfx.Init();
