@@ -117,8 +117,10 @@ namespace Example
 			{
 				fileName.Clear();
 				file.GetFilePath(fileName);
-				if (file.IsDirectory)
+				// if (file.IsDirectory) doesn't work on macOS so the hack bellow is used
+				if (!fileName.Contains("."))
 				{
+					Log.Info(scope $"Dir '{fileName}'...");
 					FindFiles(fileName, what, ref foundFiles);
 				} else
 				{

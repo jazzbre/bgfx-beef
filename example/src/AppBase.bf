@@ -16,7 +16,6 @@ namespace Example
 		public int32 mWidth = 640;
 		public int32 mHeight = 360;
 		public bool* mKeyboardState;
-		public bool mHasAudio;
 		public bool isFullscreen = false;
 
 		public int32 targetWidth = 320;
@@ -60,7 +59,6 @@ namespace Example
 
 			mWindow = SDL.CreateWindow(mTitle, .Undefined, .Undefined, mWidth, mHeight, .Shown | .Resizable);
 			SDL.MaximizeWindow(mWindow);
-			mHasAudio = SDLMixer.OpenAudio(44100, SDLMixer.MIX_DEFAULT_FORMAT, 2, 4096) >= 0;
 
 			return true;
 		}
@@ -208,17 +206,6 @@ namespace Example
 				break;
 			}
 		}
-
-		public void PlaySound(Sound sound, float volume = 1.0f, float pan = 0.5f)
-		{
-			if (sound == null)
-				return;
-
-			int32 channel = SDLMixer.PlayChannel(-1, sound.mChunk, 0);
-			//SDLMixer.SetPanning()
-			SDLMixer.Volume(channel, (int32)(volume * 128));
-		}
-
 
 		public virtual void OnPreRender()
 		{

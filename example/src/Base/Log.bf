@@ -14,11 +14,13 @@ namespace Example
 	{
 		private static void Log(LogType logType, StringView fmt, params Object[] args)
 		{
-			var log = scope String();
-			var now = DateTime.Now;
+			var log = scope String();			
 			var type = scope String();
 			logType.ToString(type);
+#if BF_PLATFORM_WINDOWS			
+			var now = DateTime.Now;
 			log.AppendF("{} {}-{}-{} {}:{}:{}.{} - ", type, now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second, now.Millisecond);
+#endif			
 			log.AppendF(fmt, params args);
 			Console.WriteLine(log);
 		}

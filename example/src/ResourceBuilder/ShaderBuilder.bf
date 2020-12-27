@@ -6,9 +6,16 @@ namespace Example
 	[Reflect(.Methods), AlwaysInclude(AssumeInstantiated = true, IncludeAllMethods = true)]
 	public class ShaderBuilder : ResourceBuilder
 	{
-		// TODO: handle building for multiple platforms
-		private const String Direct3D11VSFlags = "--platform windows --profile vs_4_0 -O 3";
-		private const String Direct3D11FSFlags = "--platform windows --profile ps_4_0 -O 3";
+#if BF_PLATFORM_WINDOWS
+		private const String VSFlags = "--platform windows --profile vs_4_0 -O 3";
+		private const String FSFlags = "--platform windows --profile ps_4_0 -O 3";
+#elif BF_PLATFORM_MACOS
+		private const String VSFlags = "--platform osx -p metal -O 3";
+		private const String FSFlags = "--platform osx -p metal -O 3";
+#elif BF_PLATFORM_LINUX
+		private const String VSFlags = "--platform linux";
+		private const String FSFlags = "--platform linux";
+#endif
 
 		public override String Extension => "shader";
 		public override Type ResourceType => typeof(Shader);
@@ -86,7 +93,7 @@ namespace Example
 				includePath.Set(ResourceManager.buildtimeShaderIncludePath);
 				var commandLine = scope String();
 				commandLine.Clear();
-				commandLine.AppendF("-f \"{0}\" -o \"{1}\" --type Vertex --varyingdef \"{2}\" -i \"{3}\" {4}", vsPath, vsBinaryPath, varPath, includePath, Direct3D11VSFlags);
+				commandLine.AppendF("-f \"{0}\" -o \"{1}\" --type Vertex --varyingdef \"{2}\" -i \"{3}\" {4}", vsPath, vsBinaryPath, varPath, includePath, VSFlags);
 				// Build vertex shader
 				if (Utils.ExecuteProcess(toolPath, commandLine) != 0)
 				{
@@ -99,7 +106,7 @@ namespace Example
 					continue;
 				}
 				commandLine.Clear();
-				commandLine.AppendF("-f \"{0}\" -o \"{1}\" --type Fragment --varyingdef \"{2}\" -i \"{3}\" {4}", fsPath, fsBinaryPath, varPath, includePath, Direct3D11FSFlags);
+				commandLine.AppendF("-f \"{0}\" -o \"{1}\" --type Fragment --varyingdef \"{2}\" -i \"{3}\" {4}", fsPath, fsBinaryPath, varPath, includePath, FSFlags);
 				// Build fragment shader
 				if (Utils.ExecuteProcess(toolPath, commandLine) != 0)
 				{
