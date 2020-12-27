@@ -18,3 +18,19 @@ LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRel
 [Configs.Test.Win64]
 OtherLinkFlags = "$(LinkFlags)  gdi32.lib user32.lib"
 LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+
+[Configs.Debug.macOS]
+OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbgfxDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimg_decodeDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimgDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbxDebug.a"]
+
+[Configs.Release.macOS]
+OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbxRelease.a"]
+
+[Configs.Paranoid.macOS]
+OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbxRelease.a"]
+
+[Configs.Test.macOS]
+OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbxRelease.a"]

@@ -2,6 +2,16 @@
 
 [bgfx](https://github.com/bkaradzic/bgfx)
 
+## Dependencies
+To build C/C++ API it needs the following parallel structure:
+```
+Root-Directory\
+    |__ sdl2-beef\
+    |__ bgfx-beef\    
+```
+
+You need to clone [sdl2-beef](https://github.com/jazzbre/sdl2-beef) by yourself.
+
 ## Prerequisites
 - To initialize submodules run *git submodule update --init --recursive*
 

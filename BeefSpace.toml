@@ -1,5 +1,5 @@
 FileVersion = 1
-Projects = {bgfx-beef = {Path = "."}, example = {Path = "example"}, SDL2 = "*"}
+Projects = {bgfx-beef = {Path = "."}, example = {Path = "example"}, sdl2-beef = {Path = "../sdl2-beef"}}
 
 [Workspace]
 StartupProject = "example"
