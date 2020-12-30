@@ -23,7 +23,7 @@ You need to clone [sdl2-beef](https://github.com/jazzbre/sdl2-beef) by yourself.
 - To build prerequisites run *./build_macos.sh*
 
 ## Linux
-- To build prerequisites run *./build_linux.sh*
+- To build prerequisites run *./build_linux.sh* (EXPERIMENTAL - tested just that it builds and links on Ubuntu 20.04 LTS with WSL2)
 
 
 ## Usage
