@@ -18,6 +18,7 @@ You need to clone [sdl2-beef](https://github.com/jazzbre/sdl2-beef) by yourself.
 ## Windows
 - Visual Studio 2019 Community/Professional (it can be built with other versions though, check build_windows_vs2019.cmd for more information)
 - To build prerequisites run *build_windows_vs2019.cmd*
+- Please note that build might fail because of missing Windows SDK (8.1 by default). Opening *submodules\bgfx\.build\projects\vs2019\bgfx.sln* and manually fixing the General/Windows SDK Version to 10.0 (latest installed version) will be needed in that case.
 
 ## MacOS
 - To build prerequisites run *./build_macos.sh*
