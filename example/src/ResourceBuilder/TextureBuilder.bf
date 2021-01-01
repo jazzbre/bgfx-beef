@@ -29,7 +29,7 @@ namespace Example
 			var commandLine = scope String();
 			commandLine.Clear();
 			commandLine.AppendF("-f \"{0}\" -o \"{1}\" -t RGBA8 --linear", path, texBinaryPath);
-			// Build fragment shader
+			// Build texture
 			if (Utils.ExecuteProcess(toolPath, commandLine) != 0)
 			{
 				var temp = scope String();
