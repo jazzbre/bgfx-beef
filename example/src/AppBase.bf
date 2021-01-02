@@ -49,17 +49,9 @@ namespace Example
 		private bool InitializeSDL()
 		{
 			SDL.Init(.Video | .Events | .Audio);
-			SDL.EventState(.JoyAxisMotion, .Disable);
-			SDL.EventState(.JoyBallMotion, .Disable);
-			SDL.EventState(.JoyHatMotion, .Disable);
-			SDL.EventState(.JoyButtonDown, .Disable);
-			SDL.EventState(.JoyButtonUp, .Disable);
-			SDL.EventState(.JoyDeviceAdded, .Disable);
-			SDL.EventState(.JoyDeviceRemoved, .Disable);
 
 			mWindow = SDL.CreateWindow(mTitle, .Undefined, .Undefined, mWidth, mHeight, .Shown | .Resizable);
 			SDL.MaximizeWindow(mWindow);
-
 			return true;
 		}
 
@@ -81,8 +73,8 @@ namespace Example
 
 			var init = bgfx.Init();
 			init.platformData = platformData;
-			init.type = bgfx.RendererType.Direct3D11;
-			init.resolution.format = bgfx.TextureFormat.RGBA8;
+			init.type = .Direct3D11;
+			init.resolution.format = .RGBA8;
 			init.resolution.width = (uint32)mWidth;
 			init.resolution.height = (uint32)mHeight;
 			init.resolution.reset = (uint32)bgfx.ResetFlags.Vsync;
@@ -115,7 +107,7 @@ namespace Example
 
 			ResourceManager.SetRootPath(currentDirectory);
 
-			mRenderTextureHandle = bgfx.create_texture_2d((uint16)targetWidth, (uint16)targetHeight, false, 1, bgfx.TextureFormat.RGBA8, (uint64)bgfx.TextureFlags.Rt, null);
+			mRenderTextureHandle = bgfx.create_texture_2d((uint16)targetWidth, (uint16)targetHeight, false, 1, .RGBA8, (uint64)bgfx.TextureFlags.Rt, null);
 
 			bgfx.TextureHandle[1] handles;
 			handles[0] = mRenderTextureHandle;
@@ -193,17 +185,12 @@ namespace Example
 				case .Focus_lost:
 					Log.Info("Pause!");
 					OnPause(true);
-					break;
 				case .FocusGained:
 					Log.Info("Resume!");
 					OnPause(false);
-					break;
 				default:
-					break;
 				}
-				break;
 			default:
-				break;
 			}
 		}
 
@@ -224,7 +211,8 @@ namespace Example
 
 		public void Run()
 		{
-			while (true)
+			var quitting = false;
+			while (!quitting)
 			{
 				mouseDelta = .sZero;
 				SDL.Event event;
@@ -233,35 +221,27 @@ namespace Example
 					switch (event.type)
 					{
 					case .Quit:
-						return;
+						quitting = true;
 					case .KeyDown:
 						KeyDown(event.key);
-						break;
 					case .KeyUp:
 						KeyUp(event.key);
-						break;
 					case .MouseButtonDown:
 						MouseDown(event.button);
-						break;
 					case .MouseButtonUp:
 						MouseUp(event.button);
-						break;
 					case .MouseMotion:
 						mouseDelta.mX += event.motion.xrel;
 						mouseDelta.mY += event.motion.yrel;
-						break;
 					case .WindowEvent:
 						switch (event.window.windowEvent) {
 						case .SizeChanged:
 							mWidth = event.window.data1;
 							mHeight = event.window.data2;
-							bgfx.reset((uint32)mWidth, (uint32)mHeight, (uint32)bgfx.ResetFlags.Vsync, Bgfx.bgfx.TextureFormat.Count);
+							bgfx.reset((uint32)mWidth, (uint32)mHeight, (uint32)bgfx.ResetFlags.Vsync, bgfx.TextureFormat.Count);
 							Log.Debug("Window resized to {0}x{1}!", mWidth, mHeight);
-							break;
 						default:
-							break;
 						}
-						break;
 					default:
 					}
 					HandleEvent(event);

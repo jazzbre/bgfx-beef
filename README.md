@@ -37,6 +37,9 @@ Example can run in two modes
 
 When running in *Buildtime* mode the changes to the existing assets (in example/buildtime directory) will be built on the fly.
 
+MacOS/Linux can be built and run with provided VSCode project (expects Beef git clone in the same root folder as this project).
+
+
 ## Future work
 iOS and Android build scripts.
 

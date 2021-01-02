@@ -8,7 +8,15 @@
         "name": "run",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceFolder}/build/Debug_macOS/example/example",
+        "osx": {        
+          "program": "${workspaceFolder}/build/Debug_macOS/example/example"
+        },
+        "linux": {        
+          "program": "${workspaceFolder}/build/Debug_Linux64/example/example"
+        },
+        "windows": {        
+          "program": "${workspaceFolder}/build/Debug_Win64/example/example"
+        },
         "args": [],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}/example",

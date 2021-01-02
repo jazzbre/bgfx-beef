@@ -5,7 +5,15 @@
     "tasks": [
         {
             "label": "build",
-            "command": "${workspaceFolder}/../Beef/IDE/dist/BeefBuild"
+            "osx": {                    
+                "command": "${workspaceFolder}/../Beef/IDE/dist/BeefBuild"
+            },
+            "linux": {                    
+                "command": "${workspaceFolder}/../Beef/IDE/dist/BeefBuild"
+            },
+            "windows": {                    
+                "command": "BeefBuild"
+            }
         }
     ]
 }
