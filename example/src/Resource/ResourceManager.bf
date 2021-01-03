@@ -189,11 +189,11 @@ namespace Example
 	const String ToolsPath = "/../submodules/bgfx/.build/win64_vs2019/bin/";
 	const String ToolsPath2 = "/../submodules/bgfx/.build/win64_vs2017/bin/";
 #elif BF_PLATFORM_MACOS
-	const String ToolsPath = "/../submodules/bgfx/.build/osx64_clang/bin/";
-	const String ToolsPath2 = "/../submodules/bgfx/.build/osx64_clang/bin/";
+	const String ToolsPath = "/../submodules/bgfx/.build/osx-x64/bin/";
+	const String ToolsPath2 = "/../submodules/bgfx/.build/osx-x64/bin/";
 #elif BF_PLATFORM_LINUX
 	const String ToolsPath = "/../submodules/bgfx/.build/linux64_gcc/bin/";
-	const String ToolsPath2 = "/../submodules/bgfx/.build/osx64_clang/bin/";
+	const String ToolsPath2 = "/../submodules/bgfx/.build/linux64_gcc/bin/";
 #endif
 
 		private static void InitializeRuntimeBuild(String path)

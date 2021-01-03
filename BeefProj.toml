@@ -21,19 +21,19 @@ LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRel
 
 [Configs.Debug.macOS]
 OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbgfxDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimg_decodeDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimgDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbxDebug.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimg_decodeDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxDebug.a"]
 
 [Configs.Release.macOS]
 OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbxRelease.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxRelease.a"]
 
 [Configs.Paranoid.macOS]
 OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbxRelease.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxRelease.a"]
 
 [Configs.Test.macOS]
 OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx64_clang\\bin\\libbxRelease.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxRelease.a"]
 
 [Configs.Debug.Linux64]
 OtherLinkFlags = "$(LinkFlags) -lGL -lXext -lX11"

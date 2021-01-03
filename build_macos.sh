@@ -1,4 +1,4 @@
 cd submodules/bgfx
-../bx/tools/bin/darwin/genie --with-tools --gcc=osx gmake
-make osx-debug64-x86 -j 8
-make osx-release64-x86 -j 8
+../bx/tools/bin/darwin/genie --with-tools --gcc=osx-x64 gmake
+make osx-x64-debug -j 8
+make osx-x64-release -j 8
