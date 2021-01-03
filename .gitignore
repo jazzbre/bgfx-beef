@@ -2,4 +2,5 @@ BeefSpace_User.toml
 submodules/bgfx/.build
 build/
 recovery/
-example/runtime/
+example/runtime/resources/*
+!.gitkeep
