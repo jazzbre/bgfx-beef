@@ -5,48 +5,48 @@ Name = "bgfx-beef"
 
 [Configs.Debug.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxDebug.lib"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxDebug.lib"]
 
 [Configs.Release.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
 
 [Configs.Paranoid.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
 
 [Configs.Test.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimg_decodeRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
 
 [Configs.Debug.macOS]
 OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimg_decodeDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxDebug.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxDebug.a"]
 
 [Configs.Release.macOS]
 OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxRelease.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxRelease.a"]
 
 [Configs.Paranoid.macOS]
 OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxRelease.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxRelease.a"]
 
 [Configs.Test.macOS]
 OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxRelease.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\osx-x64\\bin\\libbxRelease.a"]
 
 [Configs.Debug.Linux64]
 OtherLinkFlags = "$(LinkFlags) -lGL -lXext -lX11"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbgfxDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimg_decodeDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimgDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbxDebug.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbgfxDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimgDebug.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbxDebug.a"]
 
 [Configs.Release.Linux64]
 OtherLinkFlags = "$(LinkFlags) -lGL -lXext -lX11"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbxRelease.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbxRelease.a"]
 
 [Configs.Paranoid.Linux64]
 OtherLinkFlags = "$(LinkFlags) -lGL -lXext -lX11"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbxRelease.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbxRelease.a"]
 
 [Configs.Test.Linux64]
 OtherLinkFlags = "$(LinkFlags) -lGL -lXext -lX11"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimg_decodeRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbxRelease.a"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbgfxRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbimgRelease.a", "$(ProjectDir)\\submodules\\bgfx\\.build\\linux64_gcc\\bin\\libbxRelease.a"]
