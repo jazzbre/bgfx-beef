@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 Branimir Karadzic. All rights reserved.
+ * Copyright 2011-2021 Branimir Karadzic. All rights reserved.
  * License: https://github.com/bkaradzic/bgfx/blob/master/LICENSE
  */
 
@@ -1864,7 +1864,7 @@ public static class bgfx
 		TriListFlipWinding,
 	
 		/// <summary>
-		/// Flip winding order of trinagle strip.
+		/// Flip winding order of triangle strip.
 		/// </summary>
 		TriStripFlipWinding,
 	
@@ -2616,7 +2616,7 @@ public static class bgfx
 	/// <param name="_format">`printf` style format.</param>
 	///
 	[LinkName("bgfx_dbg_text_printf")]
-	public static extern void dbg_text_printf(uint16 _x, uint16 _y, uint8 _attr, char8* _format, params Object[] args );
+	public static extern void dbg_text_printf(uint16 _x, uint16 _y, uint8 _attr, char8* _format, ...);
 	
 	/// <summary>
 	/// Print formatted data from variable argument list to internal debug text character-buffer (VGA-compatible text mode).
