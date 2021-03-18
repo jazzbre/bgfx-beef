@@ -45,7 +45,7 @@ namespace Example
 			timeUniform = bgfx.create_uniform("time", bgfx.UniformType.Vec4, 1);
 		}
 
-		public void RenderQuad(uint16 viewId, ref Matrix4 model, Texture texture)
+		public void RenderQuad(bgfx.ViewId viewId, ref Matrix4 model, Texture texture)
 		{
 			bgfx.set_transform(model.Ptr(), 1);
 			uint64 state = (uint64)(bgfx.StateFlags.WriteRgb | bgfx.StateFlags.WriteA | bgfx.StateFlags.PtTristrip | bgfx.blend_function(bgfx.StateFlags.BlendSrcAlpha, bgfx.StateFlags.BlendInvSrcAlpha));
@@ -64,7 +64,7 @@ namespace Example
 		{
 			base.OnPostRender();
 			// Fullscreen clear
-			uint16 viewId = 0;
+			bgfx.ViewId viewId = 0;
 			{
 				bgfx.set_view_clear(viewId, (uint)(bgfx.ClearFlags.Color | bgfx.ClearFlags.Depth), 0, 1.0f, 0);
 				bgfx.set_view_rect(viewId, 0, 0, (uint16)mWidth, (uint16)mHeight);
@@ -86,7 +86,6 @@ namespace Example
 				var rotation = Quaternion.CreateFromYawPitchRoll(0, 0, 0);
 				model = rotation.ToMatrix();
 				var random = scope Random(100);
-
 				{
 					var time = Vector4((float)Time.Time, 0.0f, 0.0f, 0.0f);
 					bgfx.set_uniform(timeUniform, &time, 1);
