@@ -554,7 +554,7 @@ public static class bgfx
 		InstanceData           = 0x00000004,
 	
 		/// <summary>
-		/// Discard state.
+		/// Discard state and uniform bindings.
 		/// </summary>
 		State                  = 0x00000008,
 	
@@ -2053,6 +2053,7 @@ public static class bgfx
 		public RendererType type;
 		public uint16 vendorId;
 		public uint16 deviceId;
+		public uint64 capabilities;
 		public uint8 debug;
 		public uint8 profile;
 		public PlatformData platformData;
@@ -2995,6 +2996,16 @@ public static class bgfx
 	public static extern bool is_texture_valid(uint16 _depth, bool _cubeMap, uint16 _numLayers, TextureFormat _format, uint64 _flags);
 	
 	/// <summary>
+	/// Validate frame buffer parameters.
+	/// </summary>
+	///
+	/// <param name="_num">Number of attachments.</param>
+	/// <param name="_attachment">Attachment texture info. See: `bgfx::Attachment`.</param>
+	///
+	[LinkName("bgfx_is_frame_buffer_valid")]
+	public static extern bool is_frame_buffer_valid(uint8 _num, Attachment* _attachment);
+	
+	/// <summary>
 	/// Calculate amount of memory required for texture.
 	/// </summary>
 	///
@@ -3219,7 +3230,7 @@ public static class bgfx
 	/// mip level.
 	/// </summary>
 	///
-	/// <param name="_num">Number of attachements.</param>
+	/// <param name="_num">Number of attachments.</param>
 	/// <param name="_attachment">Attachment texture info. See: `bgfx::Attachment`.</param>
 	/// <param name="_destroyTexture">If true, textures will be destroyed when frame buffer is destroyed.</param>
 	///

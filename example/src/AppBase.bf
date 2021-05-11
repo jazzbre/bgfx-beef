@@ -64,16 +64,17 @@ namespace Example
 			platformData.ndt = null;
 #if BF_PLATFORM_WINDOWS
 			platformData.nwh = (void*)(int)info.info.win.window;
-#elif BF_PLATFORM_MACOS
-                        platformData.nwh = (void*)(int)info.info.cocoa.window;
-#elif BF_PLATFORM_LINUX
-                        platformData.nwh = (void*)(int)info.info.x11.window;
+			#elif BF_PLATFORM_MACOS
+						platformData.nwh = (void*)(int)info.info.cocoa.window;
+			#elif BF_PLATFORM_LINUX
+						platformData.nwh = (void*)(int)info.info.x11.window;
 #endif
 			bgfx.render_frame(0);
 
 			var init = bgfx.Init();
 			init.platformData = platformData;
 			init.type = .Direct3D11;
+			init.capabilities = uint64.MaxValue;
 			init.resolution.format = .RGBA8;
 			init.resolution.width = (uint32)mWidth;
 			init.resolution.height = (uint32)mHeight;
@@ -123,7 +124,8 @@ namespace Example
 			return mKeyboardState[(int)scancode];
 		}
 
-		public virtual void OnUpdate() {
+		public virtual void OnUpdate()
+		{
 		}
 
 		public virtual void Update()
@@ -147,16 +149,18 @@ namespace Example
 			{
 				GC.Report();
 			}
-			if ((evt.keysym.mod & .ALT) !=0 && evt.keysym.scancode == .Return)
+			if ((evt.keysym.mod & .ALT) != 0 && evt.keysym.scancode == .Return)
 			{
 				isFullscreen = !isFullscreen;
-				if(isFullscreen) {
+				if (isFullscreen)
+				{
 					var rect = SDL.Rect();
 					SDL.GetDisplayBounds(0, out rect);
 					SDL.RestoreWindow(mWindow);
 					SDL.SetWindowSize(mWindow, rect.w, rect.h);
 					SDL.SetWindowPosition(mWindow, (int32)SDL.WindowPos.Centered, (int32)SDL.WindowPos.Centered);
-				} else {
+				} else
+				{
 					SDL.RestoreWindow(mWindow);
 					SDL.MaximizeWindow(mWindow);
 				}
