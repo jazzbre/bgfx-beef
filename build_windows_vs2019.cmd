@@ -1,6 +1,6 @@
 @echo off
 cd submodules\bgfx
-..\bx\tools\bin\windows\genie --with-tools vs2019
+..\bx\tools\bin\windows\genie --with-windows=10.0 --with-tools vs2019
 cd ..\..
 xcopy /Y submodules\bgfx\bindings\bf\bgfx.bf src\
 
