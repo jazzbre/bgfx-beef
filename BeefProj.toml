@@ -5,19 +5,19 @@ Name = "bgfx-beef"
 
 [Configs.Debug.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxDebug.lib"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bgfxDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bimgDebug.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bxDebug.lib"]
 
 [Configs.Release.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bxRelease.lib"]
 
 [Configs.Paranoid.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bxRelease.lib"]
 
 [Configs.Test.Win64]
 OtherLinkFlags = "$(LinkFlags) gdi32.lib user32.lib"
-LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2019\\bin\\bxRelease.lib"]
+LibPaths = ["$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bgfxRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bimgRelease.lib", "$(ProjectDir)\\submodules\\bgfx\\.build\\win64_vs2022\\bin\\bxRelease.lib"]
 
 [Configs.Debug.macOS]
 OtherLinkFlags = "$(LinkFlags) -framework Cocoa -framework Metal -framework QuartzCore"
